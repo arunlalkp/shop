@@ -1,0 +1,15 @@
+.card {
+  margin: 10px !important;
+}
+
+.card img{
+  max-height: 200px;
+}
+
+.card .card-text  {
+  color: #909090;
+}
+
+.card .btn {
+  float: right;
+}
