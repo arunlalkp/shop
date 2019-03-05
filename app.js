@@ -9,7 +9,7 @@ const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
 const validator = require('express-validator');
-const MongoStre = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo')(session);
 
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
@@ -33,7 +33,7 @@ app.use(session({
   secret: 'mysupersecret',
   resave: false,
   saveUninitialized: false,
-  store: new MongoStre({mongooseCollection: mongoose.connection}),
+  store: new MongoStore({ mongooseConnection: mongoose.connection}),
   cookie: {maxAge: 180 * 60 * 1000}
 }));
 
