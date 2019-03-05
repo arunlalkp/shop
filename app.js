@@ -10,7 +10,9 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const validator = require('express-validator');
 
-var indexRouter = require('./routes/index');
+const indexRouter = require('./routes/index');
+const userRouter = require('./routes/user');
+
 
 var app = express();
 
@@ -32,6 +34,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use('/user',userRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
