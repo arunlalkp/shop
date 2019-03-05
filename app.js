@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
+const validator = require('express-validator');
 
 var indexRouter = require('./routes/index');
 
@@ -23,6 +24,7 @@ app.set('view engine', '.hbs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(validator());
 app.use(cookieParser());
 app.use(session({secret: 'mysupersecret',resave: false,saveUninitialized: false}));
 app.use(flash());
