@@ -3,8 +3,8 @@
         <h1>Checkout</h1>
         <h4>Your Total: ${{ total }}</h4>
 
-        <div id="charge-error" class="alert alert-danger d-none">
-
+        <div id="charge-error" class="alert alert-danger {{#if noError}}d-none{{/if}}">
+            {{errMsg}}
         </div>
 
         <form action="/checkout" method="post" id="checkout-form">
