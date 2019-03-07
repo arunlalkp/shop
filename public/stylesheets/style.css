@@ -1,3 +1,33 @@
+
+
+/*** Navbar ***/
+.navbar {
+  background-image: linear-gradient(to right, #feca1a, #feca1a);
+}
+
+.navbar-brand {
+  padding-left: 10px;
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+.navbar-brand img {
+  max-height: 50px;
+}
+
+.navbar-nav a {
+  margin-right: 15px;
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+#nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/*** card styles ***/
 .card {
   margin: 10px !important;
 }
