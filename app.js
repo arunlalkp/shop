@@ -35,6 +35,7 @@ app.use(session({
   saveUninitialized: false,
   store: new MongoStore({ mongooseConnection: mongoose.connection}),
   cookie: {maxAge: 180 * 60 * 1000}
+
 }));
 
 app.use(flash());
@@ -68,5 +69,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+console.log( 'mongoose status is ' + mongoose.connection.readyState);
 
 module.exports = app;
