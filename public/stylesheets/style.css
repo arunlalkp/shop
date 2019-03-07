@@ -33,7 +33,7 @@
   margin: 10px;
   max-width: 18rem;
   min-width: 10rem;
-  min-height: 25rem
+  min-height: 20rem
 }
 
 .card-body {
@@ -42,8 +42,7 @@
 }
 
 .card img{
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px;
   max-height: 200px;
 }
 

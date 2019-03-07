@@ -36,11 +36,24 @@
     </div>
 
 {{else}}
+<!---- Empty Cart Layout --->
 
     <div class="row">
-        <div class="col-sm-6 col-md-6 mx-auto">
-            <h2>There are No Items In Your Cart!</h2>
+        <div class="col-sm-12 col-md-12 mx-auto">
+            <div class="jumbotron-fluid text-center" style="padding-top: 200px; padding-bottom: 200px;">
+                <h1>Your Cart is Empty</h1>
+                <p>Please add something in your Cart.</p>
+                <a href="/" class="btn btn-default" style="
+                    background: #feca1a;
+                    color: black;
+                    font-weight: 600;
+                    padding: 8px 10px;
+                    border: none;">Continue Shopping..
+                </a>
+            </div>
         </div>
+
+    </div>
     </div>
 
 {{/if}}
