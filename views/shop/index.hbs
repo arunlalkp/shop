@@ -1,16 +1,32 @@
 <div class="row">
-    <div class="col-md-6 mx-auto">
-        <div id="success" class="alert alert-success {{#if noMessages}}d-none{{/if}}" style="margin-top: 30px;">
-            {{ successMsg }}
+    <div class="col-md-8 mx-auto">
+        <div id="success" class=" {{#if noMessages}}d-none{{/if}}" >
+
+            <li class="list-group-item d-flex justify-content-between align-items-center" style="
+                                    padding-left: 12px;
+                                    padding-right: 12px;
+                                    margin-top: 10px;
+                                    ">
+                <div>
+                    <h6>{{ successMsg }}</h6>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success">view order details</button>
+                </div>
+            </li>
+
         </div>
     </div>
 </div>
+
+
+<!------------->
 
 {{# each products}}
     <div class="row">
         {{# each this}}
             <div class="col-sm-6 col-md-3">
-                <div class="card">
+                <div class="card" id="itemCard">
                     <img src="{{ this.imagePath}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ this.title}}</h5>
@@ -25,3 +41,5 @@
         {{/each}}
     </div>
 {{/each}}
+
+

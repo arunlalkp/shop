@@ -18,18 +18,21 @@ router.use(csrfProtection);
 
 
 router.get('/profile',isLoggedIn, function (req, res, next) {
-    Order.find({user: req.user, function(err, orders) {
-        if (err) {
-            return res.write('Error');
-        }
-            var cart;
-            orders.forEach(function (order) {
-            cart = new Cart(order.cart);
-            order.items = cart.generateArray();
-        });
-            res.render('user/profile', {result: orders});
+    // Order.find({user: req.user, function(err, orders) {
+    //     if (err) {
+    //         return res.write('Error');
+    //     }
+    //         var cart;
+    //         orders.forEach(function (order) {
+    //         cart = new Cart(order.cart);
+    //         order.items = cart.generateArray();
+    //     });
+    //         res.render('user/profile', {result: orders});
+    //
+    //      }});
 
-         }});
+    res.render('user/profile');
+
 });
 
 router.get('/logout',isLoggedIn, function (req, res, next) {

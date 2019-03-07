@@ -96,7 +96,7 @@ router.post('/checkout', isLoggedIn,function (req, res, next) {
             paymentId: charge.id
         });
         order.save(function (error, result) {
-            req.flash('success','Thank You for Shopping with us!');
+            req.flash('success','Order Confirmed! Thank You for Shopping with us.');
             req.session.cart = null;
             res.redirect('/');
         })
