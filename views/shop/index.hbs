@@ -10,14 +10,14 @@
     <div class="row">
         {{# each this}}
             <div class="col-sm-6 col-md-3">
-                <div class="card" style="max-width: 15rem; min-width: 10rem">
+                <div class="card" style="">
                     <img src="{{ this.imagePath}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ this.title}}</h5>
                         <p class="card-text">{{ this.description}}</p>
                         <div class="price">
                             <b>${{ this.price}}</b>
-                            <a href="/add-to-cart/{{this._id}}" class="btn btn-success">Add to Cart</a>
+                            <a href="/add-to-cart/{{this._id}}" class="btn btn-default">Add to Cart</a>
                         </div>
                     </div>
                 </div>

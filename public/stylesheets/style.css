@@ -28,11 +28,22 @@
 }
 
 /*** card styles ***/
+
 .card {
-  margin: 10px !important;
+  margin: 10px;
+  max-width: 18rem;
+  min-width: 10rem;
+  min-height: 25rem
+}
+
+.card-body {
+  padding-right: 10px!important;
+  padding-left: 10px!important;
 }
 
 .card img{
+  padding-left: 10px;
+  padding-right: 10px;
   max-height: 200px;
 }
 
@@ -41,5 +52,21 @@
 }
 
 .card .btn {
+  background: #feca1a;
+  color: black;
+  font-weight: 600;
+  padding: 8px 10px;
+  border: none;
   float: right;
+}
+.card .btn:hover {
+  background: #cfd2d5;
+  color: black;
+}
+
+.card .btn:active {
+  outline: none !important;
+  border: none !important;
+  background: #cfd2d5;
+  color: black;
 }
