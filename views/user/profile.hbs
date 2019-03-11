@@ -3,19 +3,19 @@
         <h1>User Profile</h1>
         <hr>
         <h2>My orders</h2>
-            {{# each result }}
-                <div class="card">
+            {{# each orders }}
+                <div class="card" style="margin-bottom: 30px;">
                     <div class="card-body">
                         <ul class="list-group">
-                            {{# each this.items }}
+                            {{# each this.cart.items }}
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     {{ this.item.title }} | {{ this.qty }} Pairs
-                                    <span class="badge badge-primary badge-pill">{{ this.price }}</span>
+                                    <span class="badge badge-success badge-pill">${{ this.price }}</span>
                                 </li>
                             {{/each}}
                         </ul>
                     </div>
-                    <div class="card-footer text-muted">
+                    <div class="card-footer">
                         Total Price: ${{ this.cart.totalPrice }}
                     </div>
                 </div>

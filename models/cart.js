@@ -35,7 +35,7 @@ module.exports = function Cart(oldCart) {
 
 
     this.generateArray = function () {
-        var arr = [];
+        let arr = [];
         for (var id in this.items) {
             arr.push(this.items[id]);
         }

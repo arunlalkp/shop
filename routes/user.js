@@ -1,3 +1,4 @@
+
 var express = require('express');
 var router = express.Router();
 const csrf = require('csurf');
@@ -9,33 +10,25 @@ const mongoose = require('mongoose');
 const Order = require('../models/order');
 const Cart = require('../models/cart');
 
-
-
-
 const csrfProtection = csrf();
 router.use(csrfProtection);
 
 
+router.get('/profile', isLoggedIn, function (req, res, next) {
+    console.log(req.user);
+    Order.find({user: req.user._id}, (err, orders) => {
+        console.log('error is = ' + err);
+        //console.log(orders);
+        if (err) {
+            return res.write('Error !')
+        }
+        res.render('user/profile', {orders : orders});
+    });
 
-router.get('/profile',isLoggedIn, function (req, res, next) {
-    // Order.find({user: req.user, function(err, orders) {
-    //     if (err) {
-    //         return res.write('Error');
-    //     }
-    //         var cart;
-    //         orders.forEach(function (order) {
-    //         cart = new Cart(order.cart);
-    //         order.items = cart.generateArray();
-    //     });
-    //         res.render('user/profile', {result: orders});
-    //
-    //      }});
-
-    res.render('user/profile');
 
 });
 
-router.get('/logout',isLoggedIn, function (req, res, next) {
+router.get('/logout', isLoggedIn, function (req, res, next) {
     req.logout();
     res.redirect('/');
 });
@@ -48,10 +41,10 @@ router.use('/', notLoggedIn, function (req, res, next) {
 
 router.get('/signup', function (req, res, next) {
     const messages = req.flash('error');
-    res.render('user/signup',{csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
+    res.render('user/signup', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
 });
 
-router.post('/signup',passport.authenticate('local.signup', {
+router.post('/signup', passport.authenticate('local.signup', {
     failureRedirect: '/user/signup',
     failureFlash: true
 }), function (req, res, next) {
@@ -59,15 +52,14 @@ router.post('/signup',passport.authenticate('local.signup', {
         var oldUrl = req.session.oldUrl;
         req.session.oldUrl = null;
         res.redirect(oldUrl);
-    }
-    else {
+    } else {
         res.redirect('/user/profile')
     }
 });
 
 router.get('/signin', function (req, res, next) {
     const messages = req.flash('error');
-    res.render('user/signin',{csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
+    res.render('user/signin', {csrfToken: req.csrfToken(), messages: messages, hasErrors: messages.length > 0});
 });
 
 router.post('/signin', passport.authenticate('local.signin', {
@@ -78,8 +70,7 @@ router.post('/signin', passport.authenticate('local.signin', {
         var oldUrl = req.session.oldUrl;
         req.session.oldUrl = null;
         res.redirect(oldUrl);
-    }
-    else {
+    } else {
         res.redirect('/user/profile')
     }
 });

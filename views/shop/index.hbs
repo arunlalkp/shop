@@ -11,7 +11,7 @@
                     <h6>{{ successMsg }}</h6>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-success">view order details</button>
+                    <a href="/user/profile" type="button" class="btn btn-success">view order details</a>
                 </div>
             </li>
 
@@ -27,7 +27,10 @@
         {{# each this}}
             <div class="col-sm-6 col-md-3">
                 <div class="card" id="itemCard">
-                    <img src="{{ this.imagePath}}" class="card-img-top" alt="...">
+                    <img src="{{ this.imagePath}}" class="card-img-top" style="
+                        padding-top: 0px;
+                        padding-bottom: 0px;
+                        " alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ this.title}}</h5>
                         <p class="card-text">{{ this.description}}</p>
