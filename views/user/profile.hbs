@@ -1,22 +1,30 @@
 <div class="row">
     <div class="col-md-8 mx-auto">
-        <h1>User Profile</h1>
+        <h1> Profile</h1>
         <hr>
         <h2>My orders</h2>
             {{# each orders }}
-                <div class="card" style="margin-bottom: 30px;">
-                    <div class="card-body">
+                <div class="card" style="margin-bottom: 30px; " >
+                    <div class="card-body" style="
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    padding-top: 5px;">
                         <ul class="list-group">
                             {{# each this.cart.items }}
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    {{ this.item.title }} | {{ this.qty }} Pairs
-                                    <span class="badge badge-success badge-pill">${{ this.price }}</span>
+                                <li class="list-group-item d-flex justify-content-between align-items-center" style="
+                                    padding-left: 12px;
+                                    padding-right: 12px;">
+                                    <div>
+                                        <strong>{{ this.item.title }}</strong> X <strong>{{ this.qty }}</strong> Pairs
+                                    </div>
+
+                                    <span class="badge badge-success badge">${{ this.price }}</span>
                                 </li>
                             {{/each}}
                         </ul>
                     </div>
-                    <div class="card-footer">
-                        Total Price: ${{ this.cart.totalPrice }}
+                    <div class="card-footer text-right">
+                        Total Price: <strong>${{ this.cart.totalPrice }}</strong>
                     </div>
                 </div>
             {{/each}}

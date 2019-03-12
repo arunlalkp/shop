@@ -70,6 +70,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-console.log( 'mongoose status is ' + mongoose.connection.readyState);
-
 module.exports = app;
+

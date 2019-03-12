@@ -15,7 +15,7 @@ router.use(csrfProtection);
 
 
 router.get('/profile', isLoggedIn, function (req, res, next) {
-    console.log(req.user);
+    console.log('User Details = ' +req.user);
     Order.find({user: req.user._id}, (err, orders) => {
         console.log('error is = ' + err);
         //console.log(orders);
